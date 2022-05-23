@@ -1,5 +1,5 @@
 <script>
-	import { avatarRingColorMapper } from '../helpers/utils';
+	import { avatarRingColorMapper } from '../../helpers/utils';
 	import { onMount } from 'svelte';
 	export let img;
 	export let size = 'small';

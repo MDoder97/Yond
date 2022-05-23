@@ -6,7 +6,7 @@
 	import Avatar from './Avatar.svelte';
 	import SearchResult from './SearchResult.svelte';
 	import { users } from '../../stores/users';
-	import { clickOutside } from '../helpers/utils';
+	import { clickOutside } from '../../helpers/utils';
 
 	let searchQuery = '';
 	let searchedUsers = null;

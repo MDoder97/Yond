@@ -1,6 +1,6 @@
 <script>
 	import Avatar from './Avatar.svelte';
-	import { userGroupPluralMapper } from '../helpers/utils';
+	import { userGroupPluralMapper } from '../../helpers/utils';
 	import RightIcon from '../assets/icons/RightIcon.svelte';
 	import UserPreview from './UserPreview.svelte';
 
