@@ -22,12 +22,11 @@
 	};
 
 	const filterUsers = () => {
-		searchedUsers = $users.filter((user) => {
-			return (
+		searchedUsers = $users.filter(
+			(user) =>
 				user.email_address.toLowerCase().startsWith(searchQuery.toLowerCase()) ||
 				user.id.startsWith(searchQuery)
-			);
-		});
+		);
 	};
 </script>
 

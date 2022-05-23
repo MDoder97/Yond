@@ -1,13 +1,12 @@
 <script>
 	import UserGroup from './UserGroup.svelte';
-	import UserPreview from './UserPreview.svelte';
 	export let searchedUsers = [];
 	let userListMapper = {};
 	let currentPreviewUser = null;
 
-	$: parseUsers(searchedUsers);
+	$: parseUserTypes(searchedUsers);
 
-	const parseUsers = (searchedUsers) => {
+	const parseUserTypes = (searchedUsers) => {
 		userListMapper.member = [];
 		userListMapper.staff = [];
 		userListMapper.prospect = [];
@@ -20,15 +19,15 @@
 	};
 </script>
 
-<div class="{$$props.class} bg-white border border-gray-300 rounded-md w-[62rem]">
+<div
+	data-testid="search-result"
+	class="{$$props.class} bg-white border border-gray-300 rounded-md w-[62rem]"
+>
 	<div class="flex">
 		<div class="pt-2.5 grow">
 			{#each Object.entries(userListMapper) as [groupType, users]}
 				<UserGroup bind:currentPreviewUser {groupType} {users} />
 			{/each}
 		</div>
-		{#if currentPreviewUser}
-			<UserPreview user={currentPreviewUser} listLength={searchedUsers.length} />
-		{/if}
 	</div>
 </div>

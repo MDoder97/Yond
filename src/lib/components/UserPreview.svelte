@@ -1,13 +1,11 @@
 <script>
 	import Avatar from './Avatar.svelte';
-	import { avatarRingColorMapper } from '../helpers/utils';
 	import ChatIcon from '../assets/icons/ChatIcon.svelte';
 	import PhoneIcon from '../assets/icons/PhoneIcon.svelte';
 	import DumbbellIcon from '../assets/icons/DumbbellIcon.svelte';
 	import LocationIcon from '../assets/icons/LocationIcon.svelte';
 
 	export let user;
-	export let listLength = 0;
 	let iconActions = [
 		[ChatIcon, () => {}],
 		[PhoneIcon, () => {}],
@@ -17,7 +15,8 @@
 </script>
 
 <div
-	class="bg-white w-[27rem] rounded-md border-l flex flex-col items-center justify-around py-2 px-6"
+	on:mouseenter|stopPropagation
+	class="absolute cursor-default z-10 right-0 top-0 bg-white h-[20rem] w-[27rem] rounded-md border flex flex-col items-center justify-around py-2 px-6"
 >
 	<div class="flex flex-col w-full items-center">
 		<Avatar
@@ -39,19 +38,20 @@
 			<td class="font-medium">{user.membership ?? 'PENDING'}</td>
 		</tr>
 		<tr>
-			<th class="text-left">Phone</th>
+			<th class="text-left w-28">Phone</th>
 			<td>{user.phone}</td>
 		</tr>
 		<tr>
-			<th class="text-left">Email</th>
+			<th class="text-left w-28">Email</th>
 			<td class="text-yond-teal">{user.email_address}</td>
 		</tr>
 	</table>
 	<div class="flex justify-around w-52">
 		{#each iconActions as [icon, action]}
 			<div
+				data-testid="preview-icon"
 				on:click={action}
-				class="bg-yond-gray-50 rounded-full w-10 h-10 flex justify-center items-center cursor-pointer;"
+				class="bg-yond-gray-50 rounded-full w-10 h-10 flex justify-center items-center cursor-pointer"
 			>
 				<svelte:component this={icon} />
 			</div>

@@ -32,16 +32,21 @@
 </script>
 
 <div
+	data-testid="search-container"
 	class="container flex items-center border border-gray-300 rounded-md h-12 w-[62rem]"
 	on:mousedown={handleActive}
 	on:mouseover={() => (hovered = true)}
 	on:mouseout={() => (hovered = false)}
 >
-	<div class="absolute p-3 {showSearchIcon ? '' : 'hidden'} cursor-text">
-		<SearchIcon
-			strokeClass="{hovered ? 'stroke-black' : 'stroke-gray-400'} transition duration-150 ease-out"
-		/>
-	</div>
+	{#if showSearchIcon}
+		<div data-testid="search-icon" class="absolute p-3 cursor-text">
+			<SearchIcon
+				strokeClass="{hovered
+					? 'stroke-black'
+					: 'stroke-gray-400'} transition duration-150 ease-out"
+			/>
+		</div>
+	{/if}
 	<input
 		on:blur={handleBlur}
 		bind:this={searchInput}
@@ -53,6 +58,8 @@
 			{showSearchIcon ? 'pl-11' : 'pl-3'} outline-none h-full w-full rounded-md p-0"
 	/>
 	{#if searchQuery}
-		<CloseIcon on:click={closeSearch} class="mr-2 cursor-pointer" />
+		<div data-testid="close-icon">
+			<CloseIcon on:click={closeSearch} class="mr-2 cursor-pointer" />
+		</div>
 	{/if}
 </div>
