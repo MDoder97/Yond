@@ -33,7 +33,7 @@
 
 <div
 	data-testid="search-container"
-	class="container flex items-center border border-gray-300 rounded-md h-12 w-[62rem]"
+	class="container flex items-center border border-gray-300 rounded-md h-12 w-[58rem]"
 	on:mousedown={handleActive}
 	on:mouseover={() => (hovered = true)}
 	on:mouseout={() => (hovered = false)}

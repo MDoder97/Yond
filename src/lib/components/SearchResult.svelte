@@ -21,7 +21,7 @@
 
 <div
 	data-testid="search-result"
-	class="{$$props.class} bg-white border border-gray-300 rounded-md w-[62rem]"
+	class="{$$props.class} bg-white border border-gray-300 rounded-md w-[58rem]"
 >
 	<div class="flex">
 		<div class="pt-2.5 grow">
